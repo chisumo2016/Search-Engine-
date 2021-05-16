@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\SaveDocumentAction;
 use App\Models\Document;
 use Illuminate\Http\Request;
 
@@ -33,28 +34,14 @@ class DocumentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, saveDocumentAction $documentAction)
     {
         //dd($request);
        $validated = $request->validate([
            'document' => 'required|mimes:txt'
        ]);
 
-       $uploadedFile = $request->file('document');
-       $file = $uploadedFile->store('documents');
-
-       if (!$request->filename){
-           $originalFilename = basename($uploadedFile->getClientOriginalName(), '.' .$uploadedFile->getClientOriginalExtension());
-       }
-       //store in database
-       $document  = new Document();
-       $document->filename = $originalFilename  ?? $request->filename;
-
-        $document->location = $file;
-        $document->description = "";
-        $document->user_id = auth()->user()->id;
-        $document->save();
-
+        $documentAction->execute($request->toArray());
         return redirect(route('documents.index'));
 
 
@@ -106,3 +93,28 @@ class DocumentController extends Controller
         //
     }
 }
+
+
+/*
+ //dd($request);
+       $validated = $request->validate([
+           'document' => 'required|mimes:txt'
+       ]);
+
+       $uploadedFile = $request->file('document');
+       $file = $uploadedFile->store('documents');
+
+       if (!$request->filename){
+           $originalFilename = basename($uploadedFile->getClientOriginalName(), '.' .$uploadedFile->getClientOriginalExtension());
+       }
+       //store in database
+       $document  = new Document();
+       $document->filename = $originalFilename  ?? $request->filename;
+
+        $document->location = $file;
+        $document->description = "";
+        $document->user_id = auth()->user()->id;
+        $document->save();
+
+        return redirect(route('documents.index'));
+ */
