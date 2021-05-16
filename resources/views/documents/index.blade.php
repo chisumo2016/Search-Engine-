@@ -34,12 +34,14 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
+
+                                @foreach($documents as $document)
+                                    <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Document name</div>
+                                        <div class="text-sm text-gray-500">{{ $document->filename}}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-500">Users name</div>
+                                        <div class="text-sm text-gray-500">{{ $document->user->name }}</div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -56,10 +58,14 @@
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
 
                                 <!-- More people... -->
                                 </tbody>
                             </table>
+                            <div class="bg-white px-4 py-3 items-center justify-between">
+                                {{ $documents->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
