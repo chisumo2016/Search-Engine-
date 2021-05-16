@@ -14,12 +14,19 @@ class  SaveDocumentAction
         if (!$upload['filename']){
             $originalFilename = basename($uploadedFile->getClientOriginalName(), '.' .$uploadedFile->getClientOriginalExtension());
         }
+
+        $class = config('filereader.'.$upload['document']->getMimeType());
+        $reader = new  $class;
+
+       //config('filereader.text/plain');
+
         //store in database
         $document  = new Document();
         $document->filename = $originalFilename  ?? $upload['filename'];
 
         $document->location = $file;
-        $document->description = "";
+        $document->description = $reader->getContents($upload['document']);
+        //$document->description = "";
         $document->user_id = auth()->user()->id;
         $document->save();
 
