@@ -24,7 +24,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return  view('documents.create');
     }
 
     /**
@@ -35,7 +35,30 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+       $validated = $request->validate([
+           'document' => 'required|mimes:txt'
+       ]);
+
+       $uploadedFile = $request->file('document');
+       $file = $uploadedFile->store('documents');
+
+       if (!$request->filename){
+           $originalFilename = basename($uploadedFile->getClientOriginalName(), '.' .$uploadedFile->getClientOriginalExtension());
+       }
+       //store in database
+       $document  = new Document();
+       $document->filename = $originalFilename  ?? $request->filename;
+
+        $document->location = $file;
+        $document->description = "";
+        $document->user_id = auth()->user()->id;
+        $document->save();
+
+        return redirect(route('documents.index'));
+
+
+
     }
 
     /**
