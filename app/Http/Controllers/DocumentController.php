@@ -93,6 +93,12 @@ class DocumentController extends Controller
     {
         //
     }
+
+    public  function  search(Request  $request)
+    {
+        $documents = Document::search($request->term)->paginate(1);
+        return  view('documents.index', compact('documents'));
+    }
 }
 
 
