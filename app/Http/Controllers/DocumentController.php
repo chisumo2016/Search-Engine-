@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Actions\SaveDocumentAction;
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
-    private $paginationAmount = 5;
+    private $paginationAmount = 3;
     /**
      * Display a listing of the resource.
      *
@@ -92,7 +93,10 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        Storage::delete($document->location);
+        $document->delete();
+
+        return  redirect(route('documents.index'));
     }
 
     public  function  search(Request  $request)
@@ -100,6 +104,13 @@ class DocumentController extends Controller
         $documents = Document::search($request->term)->paginate($this->paginationAmount);
         $documents->appends(['term'=>$request->term]);
         return  view('documents.index', compact('documents'));
+    }
+
+    public  function  download($id)
+    {
+        $document = Document::findOrFail($id);
+        return Storage::download($document->location, $document->filename);
+
     }
 }
 
