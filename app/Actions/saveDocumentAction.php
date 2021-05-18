@@ -15,6 +15,7 @@ class  SaveDocumentAction
             $originalFilename = basename($uploadedFile->getClientOriginalName(), '.' .$uploadedFile->getClientOriginalExtension());
         }
 
+
         $class = config('filereader.'.$upload['document']->getMimeType());
         $reader = new  $class;
 
@@ -25,7 +26,7 @@ class  SaveDocumentAction
         $document->filename = $originalFilename  ?? $upload['filename'];
 
         $document->location = $file;
-        $document->description = $reader->getContents($upload['document']);
+        $document->description = $reader->getContents($upload['document']); //contract interface
         //$document->description = "";
         $document->user_id = auth()->user()->id;
         $document->save();

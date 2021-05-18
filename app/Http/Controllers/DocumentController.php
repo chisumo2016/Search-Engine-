@@ -41,7 +41,7 @@ class DocumentController extends Controller
     {
         //dd($request);
        $validated = $request->validate([
-           'document' => 'required|mimes:txt'
+           'document' => 'required|mimetypes:text/plain,application/pdf' //mimes:txt'
        ]);
 
         $documentAction->execute($request->toArray());

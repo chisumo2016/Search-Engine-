@@ -12,7 +12,8 @@
         "laravel/framework": "^8.40",
         "laravel/scout": "^8.0",
         "laravel/tinker": "^2.5",
-        "meilisearch/meilisearch-laravel-scout": "^0.12.5"
+        "meilisearch/meilisearch-laravel-scout": "^0.12.5",
+        "smalot/pdfparser": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
