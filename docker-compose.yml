@@ -3,7 +3,7 @@ version: '3'
 services:
     laravel.test:
         build:
-            context: ./docker/8.0
+            context: ./vendor/laravel/sail/runtimes/8.0
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -35,10 +35,12 @@ services:
             - sail
         healthcheck:
           test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
-    memcached:
-        image: 'memcached:alpine'
+    meilisearch:
+        image: 'getmeili/meilisearch:latest'
         ports:
-            - '11211:11211'
+            - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
+        volumes:
+            - 'sailmeilisearch:/data.ms'
         networks:
             - sail
 networks:
@@ -46,4 +48,6 @@ networks:
         driver: bridge
 volumes:
     sailmysql:
+        driver: local
+    sailmeilisearch:
         driver: local
