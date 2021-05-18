@@ -22,7 +22,9 @@
                 </div>
             </div>
         </div>
-       <x-document-table :documents="$documents" />
+{{--       <x-document-table :documents="$documents" />--}}
+        <livewire:documents />
+
     </div>
 
     <div class="py-12">
