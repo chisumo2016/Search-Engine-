@@ -34,7 +34,7 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
  
  6: npm install && npm run dev
  
- 7:php artisan serve or use Laravel Valet /
+ 7:php artisan serve or use Laravel Valet / Docker Sail
  
 
 ## License
