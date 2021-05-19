@@ -9,13 +9,15 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
 	    - Scout 
 	    - Meilisearch 
 - George Washington
-        - John Adams
-        - Thomas Jefferson
-livewire components etc
--The system shows the list of documents  and they are all paginated according to the requirements.
--User can be  to download each of the these documents once he/she has been authenticated.
--User can be able to delete the document with nice error modal message (Tailwindcss UI).
--User can be able to search the  title of document via search engine. This is powered by laravel scout and Meilisearch
+- John Adams
+- Thomas Jefferson
+- livewire components etc
+
+ ## Functionality 
+- The system shows the list of documents  and they are all paginated according to the requirements.
+- User can be  to download each of the these documents once he/she has been authenticated.
+- User can be able to delete the document with nice error modal message (Tailwindcss UI).
+- User can be able to search the  title of document via search engine. This is powered by laravel scout and Meilisearch
 
  ## Installation Process
  
