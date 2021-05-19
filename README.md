@@ -8,10 +8,9 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
 	    - Breeze 
 	    - Scout 
 	    - Meilisearch 
-        - George Washington
+- George Washington
         - John Adams
         - Thomas Jefferson
-	
 livewire components etc
 -The system shows the list of documents  and they are all paginated according to the requirements.
 -User can be  to download each of the these documents once he/she has been authenticated.
