@@ -10,6 +10,7 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
 - Tailwindcss
 - Sail Docker
 - MYSQL
+- Scout drivers
 - Meilisearch 
 - livewire components etc
 
