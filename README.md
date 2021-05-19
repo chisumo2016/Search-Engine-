@@ -8,9 +8,11 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
 	    - Breeze 
 	    - Scout 
 	    - Meilisearch 
-- George Washington
-- John Adams
-- Thomas Jefferson
+- Laravel 8
+- Breeze 
+- Tailwindcss
+- Sail Docker
+- Meilisearch 
 - livewire components etc
 
  ## Functionality 
