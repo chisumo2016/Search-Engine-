@@ -7,6 +7,7 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
     
 - Laravel 8
 - Breeze 
+- PHP 8
 - Tailwindcss
 - Sail Docker
 - MYSQL
