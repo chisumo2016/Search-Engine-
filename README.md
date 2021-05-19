@@ -3,8 +3,8 @@
 ## Document Search Engine Application 
 Document Search Engine with Laravel 8 :It allows users to upload their documents and make them  shareable with other users and it also makes the documents and the contents of the ducuments searchable. This application is covering alot of Technology 
        ```
-	- Laravel 8
-	- Tailwindcss
+	-Laravel 8
+	-Tailwindcss
     - Sail Docker
 	- Breeze 
 	- Scout 
