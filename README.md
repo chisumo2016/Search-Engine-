@@ -17,6 +17,7 @@ Document Search Engine with Laravel 8 :It allows users to upload their documents
 
  ## Functionality 
 - The system shows the list of documents  and they are all paginated according to the requirements.
+- User must be register inorder to upload the documents.
 - User can be  to download each of the these documents once he/she has been authenticated.
 - User can be able to delete the document with nice error modal message (Tailwindcss UI).
 - User can be able to search the  title of document via search engine. This is powered by laravel scout and Meilisearch
