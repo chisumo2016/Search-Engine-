@@ -10,7 +10,7 @@
             <div class="md:grid md:grid-cols-3 md:gap-6">
                 <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Documnt</h3>
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">Document</h3>
                         <p class="mt-1 text-sm text-gray-600">
                             Please upload your document .Filename is optional and will be taken from the
                             uploaded file if no filename is provided
@@ -35,7 +35,7 @@
 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">
-                                 Document
+                                        Document
                                     </label>
                                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                                         <div class="space-y-1 text-center">
@@ -49,7 +49,7 @@
                                                 </label>
                                             </div>
                                             <p class="text-xs text-gray-500">
-                                               .txt,.pdf
+                                                .txt,.pdf
                                             </p>
                                         </div>
                                     </div>

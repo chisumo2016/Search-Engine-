@@ -13,6 +13,7 @@ class Documents extends Component
     public  $term;
 
     protected  $queryString = ['term'];
+    public  $idToDelete;
 
 
     public function render()
@@ -22,8 +23,22 @@ class Documents extends Component
         }else{
             $documents = Document::with('user')
                 ->orderBy('created_at','DESC')
-                ->paginate(2);
+                ->paginate(3);
         }
         return view('livewire.documents',compact('documents'));
+    }
+
+    public  function  confirmDelete(int $id)
+    {
+       $this->idToDelete = $id;
+
+       $this->dispatchBrowserEvent('show-delete-modal');
+    }
+
+    public  function  destroy()
+    {
+        Document::destroy($this->idToDelete);
+        $this->dispatchBrowserEvent('hide-delete-modal');
+        $this->render();
     }
 }

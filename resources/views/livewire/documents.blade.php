@@ -1,14 +1,13 @@
+
 <div>
+    {{--  search Component  --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 flex justify-between">
                     <form action="{{ route('documents.search') }}" method="GET">
                         {{--                        @csrf--}}
-                        <x-input class="ml-3 border-b py-2 text-grey-darkest shadow-none"
-                                 name="term"
-                                 wire:model="term"
-                        >
+                        <x-input class="ml-3 border-b py-2 text-grey-darkest shadow-none" name="term">
 
                         </x-input>
                         <x-button class="ml-3">Search</x-button>
@@ -80,4 +79,20 @@
             </div>
         </div>
     </div>
+</div>
+
+    <script>
+        window.addEventListener('show-delete-modal', event => {
+            //show Modal
+            document.getElementById('deleteModal').classList.remove('hidden');
+        });
+
+        window.addEventListener('hide-delete-modal', closeModal);
+
+        document.getElementById('closeModal').addEventListener('click',closeModal);
+
+        function closeModal(){
+            document.getElementById('deleteModal').classList.add('hidden');
+        }
+    </script>
 </div>
